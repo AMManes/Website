@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c1d32">
+  <meta name="description" content="Alex Manes, geospatial analysis, drone services, and graphic design. Turning aerial data and spatial complexity into clear, useful visuals.">
+  <title>Alex Manes | Geospatial &amp; Visual Work</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --navy: #0c1d32;
+      --navy-2: #142b45;
+      --ink: #152638;
+      --muted: #667585;
+      --paper: #f4f5f2;
+      --white: #fff;
+      --line: #dce2e5;
+      --mint: #c6d5df;
+      --lime: #d9b66f;
+      --blue: #73b9d0;
+      --gold: #d9b66f;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Aptos", "Segoe UI", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      clip-path: inset(50%);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 3px solid #7bbbd0; outline-offset: 4px; }
+
+    .skip-link {
+      position: fixed;
+      z-index: 20;
+      top: 10px;
+      left: 10px;
+      padding: 12px 16px;
+      color: var(--navy);
+      background: var(--white);
+      transform: translateY(-160%);
+    }
+    .skip-link:focus { transform: translateY(0); }
+    .utility-bar {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 8px clamp(22px, 6vw, 96px);
+      color: #d3dce4;
+      background: #071526;
+      border-top: 3px solid var(--gold);
+      font-size: 9px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 82px;
+      padding: 0 clamp(22px, 6vw, 96px);
+      background: var(--navy);
+      color: var(--white);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .section[id], .project-gallery-section, .contact[id] { scroll-margin-top: 98px; }
+    .nav-toggle {
+      display: none;
+      min-height: 40px;
+      padding: 0 12px;
+      color: var(--white);
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.35);
+      font: inherit;
+      font-size: 11px;
+      cursor: pointer;
+    }
+    .identity {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+    }
+    .identity img {
+      width: 174px;
+      height: 60px;
+      object-fit: contain;
+    }
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(20px, 3.2vw, 48px);
+      font-size: 12px;
+      letter-spacing: .04em;
+    }
+    .main-nav a {
+      color: #d4dce4;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+    .main-nav a:hover { color: var(--lime); }
+    .main-nav .nav-contact {
+      padding: 12px 17px;
+      color: var(--navy);
+      background: var(--lime);
+      font-weight: 700;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(62px, 8vw, 112px) clamp(22px, 6vw, 96px) 68px;
+      color: var(--white);
+      background:
+        radial-gradient(ellipse at 15% 90%, rgba(44, 92, 122, .24), transparent 36%),
+        var(--navy);
+    }
+    .hero::after {
+      position: absolute;
+      right: -100px;
+      bottom: -220px;
+      width: 620px;
+      height: 620px;
+      border: 1px solid rgba(188,233,217,.1);
+      border-radius: 50%;
+      box-shadow: 0 0 0 48px rgba(188,233,217,.025), 0 0 0 100px rgba(188,233,217,.025);
+      content: "";
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(440px, 1.05fr);
+      align-items: center;
+      gap: clamp(36px, 7vw, 100px);
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--mint);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      width: 26px;
+      height: 1px;
+      background: var(--lime);
+      content: "";
+    }
+    h1 {
+      max-width: 690px;
+      margin: 24px 0 23px;
+      font-family: var(--serif);
+      font-size: clamp(50px, 6.8vw, 94px);
+      font-weight: 400;
+      letter-spacing: -.055em;
+      line-height: .99;
+    }
+    h1 em { color: var(--mint); font-weight: 400; }
+    .hero-copy {
+      max-width: 500px;
+      color: #bdc8d2;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-top: 34px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      min-height: 48px;
+      padding: 0 19px;
+      color: var(--navy);
+      background: var(--lime);
+      font-size: 12px;
+      font-weight: 750;
+      text-decoration: none;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); background: #e9d4a4; }
+    .button-secondary {
+      color: var(--white);
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.3);
+    }
+    .button-secondary:hover { background: rgba(255,255,255,.08); }
+    .arrow { font-size: 16px; line-height: 1; }
+
+    .hero-visual {
+      position: relative;
+      min-height: 405px;
+      border: 1px solid rgba(255,255,255,.2);
+      background: #253b3f;
+      box-shadow: 22px 22px 0 rgba(5,13,23,.25);
+    }
+    .hero-visual > img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.83);
+    }
+    .hero-visual::after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7,20,31,.05) 12%, rgba(7,20,31,.12) 45%, rgba(7,20,31,.83) 100%);
+      content: "";
+    }
+    .image-label {
+      position: absolute;
+      z-index: 1;
+      top: 18px;
+      left: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 11px;
+      color: var(--white);
+      background: rgba(12,29,50,.76);
+      border: 1px solid rgba(255,255,255,.24);
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 0 4px rgba(217,243,106,.15);
+    }
+    .visual-caption {
+      position: absolute;
+      z-index: 1;
+      right: 25px;
+      bottom: 23px;
+      left: 25px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--white);
+    }
+    .visual-caption strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 23px;
+      font-weight: 400;
+    }
+    .visual-caption span {
+      display: block;
+      margin-top: 7px;
+      color: #d7e1e5;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .compass {
+      display: grid;
+      width: 58px;
+      height: 58px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 50%;
+      color: var(--lime);
+      font-size: 25px;
+    }
+
+    .signal-strip {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1320px;
+      margin: 70px auto 0;
+      border-top: 1px solid rgba(255,255,255,.2);
+    }
+    .signal-item {
+      padding: 20px 20px 0 0;
+      color: #aab9c7;
+      font-size: 10px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .signal-item b {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 650;
+      letter-spacing: .04em;
+      text-transform: none;
+    }
+
+    .section {
+      padding: clamp(76px, 9vw, 122px) clamp(22px, 6vw, 96px);
+    }
+    .section-inner { max-width: 1320px; margin: 0 auto; }
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 35px;
+      margin-bottom: 48px;
+    }
+    .section-heading h2 {
+      max-width: 650px;
+      margin: 13px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(39px, 5vw, 64px);
+      font-weight: 400;
+      letter-spacing: -.045em;
+      line-height: 1.05;
+    }
+    .section-heading p {
+      max-width: 400px;
+      margin: 0 0 4px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+    .section .eyebrow { color: #607b80; }
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .capability {
+      position: relative;
+      min-height: 250px;
+      padding: 30px clamp(20px, 3vw, 45px) 34px 0;
+    }
+    .capability + .capability {
+      padding-left: clamp(20px, 3vw, 45px);
+      border-left: 1px solid var(--line);
+    }
+    .capability-index {
+      color: #638d8d;
+      font-size: 10px;
+      letter-spacing: .13em;
+    }
+    .capability h3 {
+      margin: 41px 0 12px;
+      font-family: var(--serif);
+      font-size: clamp(25px, 2.4vw, 34px);
+      font-weight: 400;
+      letter-spacing: -.025em;
+    }
+    .capability p {
+      max-width: 360px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .capability-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 20px;
+    }
+    .tag {
+      padding: 6px 9px;
+      color: #425664;
+      background: #e8eeeb;
+      font-size: 9px;
+      letter-spacing: .06em;
+    }
+
+    .work-section {
+      color: var(--white);
+      background: var(--navy);
+    }
+    .work-section .eyebrow { color: var(--mint); }
+    .work-section .section-heading p { color: #aebdca; }
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .work-card {
+      position: relative;
+      display: flex;
+      min-height: 370px;
+      overflow: hidden;
+      flex-direction: column;
+      justify-content: end;
+      padding: 23px;
+      background: #1c3448;
+      border: 1px solid rgba(255,255,255,.14);
+    }
+    .work-card::after {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(0deg, rgba(7,20,34,.96), rgba(7,20,34,.36));
+      content: "";
+      pointer-events: none;
+    }
+    .work-card:focus-visible { outline-offset: 4px; }
+    .discipline-art {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: #10263a;
+    }
+    .discipline-art .art-grid {
+      fill: none;
+      stroke: rgba(177,211,220,.16);
+      stroke-width: 1;
+    }
+    .discipline-art .art-line {
+      fill: none;
+      stroke: #8db8b7;
+      stroke-width: 1.5;
+      stroke-dasharray: 7 8;
+      animation: route-draw 18s linear infinite;
+    }
+    .discipline-art .art-accent { fill: var(--gold); }
+    .discipline-art .art-muted { fill: none; stroke: rgba(188,233,217,.53); stroke-width: 1.4; }
+    .discipline-art .art-pulse { animation: signal-pulse 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    .work-card:nth-child(2) .discipline-art { background: #102335; }
+    .work-card:nth-child(3) .discipline-art { background: #142535; }
+    .work-card:nth-child(3) .art-accent { fill: #d9b66f; }
+    @keyframes route-draw { to { stroke-dashoffset: -90; } }
+    @keyframes signal-pulse { 50% { opacity: .35; transform: scale(.82); } }
+    .work-card:first-child { min-height: 390px; }
+    .work-card > img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.72) brightness(.82);
+      transition: transform .5s ease;
+    }
+    .work-card:hover > img { transform: scale(1.04); }
+    .work-card.photo::after {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(0deg, rgba(7,20,34,.96) 0%, rgba(7,20,34,.72) 32%, rgba(7,20,34,.18) 100%),
+        linear-gradient(180deg, rgba(12,29,50,.16), transparent 45%);
+      content: "";
+    }
+    .work-content {
+      position: relative;
+      z-index: 1;
+    }
+    .work-content .eyebrow { font-size: 9px; }
+    .work-content h3 {
+      margin: 13px 0 8px;
+      font-family: var(--serif);
+      font-size: 27px;
+      font-weight: 400;
+    }
+    .work-content p {
+      max-width: 355px;
+      margin: 0;
+      color: #c2ced8;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+    .work-card { text-decoration: none; }
+    .project-gallery-section {
+      margin-top: 58px;
+      padding-top: 34px;
+      border-top: 1px solid rgba(255,255,255,.18);
+      scroll-margin-top: 22px;
+    }
+    .project-gallery-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin: 0 0 19px;
+    }
+    .project-gallery-heading h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 31px;
+      font-weight: 400;
+    }
+    .project-gallery-heading p {
+      max-width: 540px;
+      margin: 0;
+      color: #b2c0ca;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+    .drone-gallery,
+    .analysis-gallery,
+    .design-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .analysis-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .design-gallery { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .drone-frame,
+    .analysis-frame,
+    .design-frame {
+      position: relative;
+      min-width: 0;
+      overflow: hidden;
+      margin: 0;
+      aspect-ratio: 1.25;
+      background: #21384a;
+      border: 1px solid rgba(255,255,255,.14);
+    }
+    .drone-frame img,
+    .analysis-frame img,
+    .design-frame img {
+      width: 100%;
+      height: 100%;
+      transition: transform .45s ease;
+    }
+    .drone-frame img { object-fit: cover; }
+    .analysis-frame { aspect-ratio: 1.35; background: #fff; }
+    .analysis-frame img { object-fit: contain; padding: 5px; }
+    .design-frame { aspect-ratio: 1; background: #f0f1ef; }
+    .design-frame { background: #000; }
+    .design-frame img { object-fit: contain; padding: 10px; }
+    .design-gallery .design-frame img { background: #000; }
+    .gallery-tools {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 16px 0;
+    }
+    .gallery-search {
+      width: min(100%, 320px);
+      min-height: 42px;
+      padding: 0 12px;
+      color: #edf3f6;
+      background: #10243a;
+      border: 1px solid rgba(255,255,255,.25);
+      font: inherit;
+      font-size: 12px;
+    }
+    .gallery-count { color: #b2c0ca; font-size: 10px; }
+    .gallery-search::placeholder { color: #aab9c7; }
+    .report-preview {
+      display: block;
+      width: 100%;
+      height: 340px;
+      margin-top: 16px;
+      background: #fff;
+      border: 1px solid rgba(255,255,255,.2);
+    }
+    .report-map {
+      display: block;
+      width: 100%;
+      max-height: 360px;
+      margin-top: 15px;
+      object-fit: contain;
+      background: #fff;
+      border: 1px solid rgba(255,255,255,.16);
+      cursor: zoom-in;
+    }
+    .analysis-image-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      margin-top: 14px;
+    }
+    .analysis-image-row img {
+      width: 100%;
+      height: 110px;
+      object-fit: contain;
+      background: #fff;
+      cursor: zoom-in;
+    }
+    .project-media-label {
+      margin: 14px 0 0;
+      color: #c4d3dc;
+      font-size: 9px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .media-viewer {
+      width: min(92vw, 1100px);
+      max-width: none;
+      max-height: 92vh;
+      padding: 14px;
+      color: var(--white);
+      background: #071526;
+      border: 1px solid rgba(255,255,255,.3);
+    }
+    .media-viewer::backdrop { background: rgba(2,9,17,.88); }
+    .media-viewer img { max-height: calc(92vh - 88px); margin: auto; object-fit: contain; }
+    .media-viewer figcaption { margin-top: 10px; color: #d3dce4; font-size: 12px; }
+    .media-viewer-close {
+      display: block;
+      min-height: 40px;
+      margin: 0 0 12px auto;
+      padding: 0 13px;
+      color: var(--white);
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.4);
+      cursor: pointer;
+    }
+    .intro-screen {
+      position: fixed;
+      z-index: 30;
+      inset: 0;
+      display: grid;
+      width: 100%;
+      max-width: none;
+      height: 100%;
+      max-height: none;
+      margin: 0;
+      padding: 0;
+      place-items: center;
+      overflow: hidden;
+      color: var(--white);
+      background: #071526;
+      border: 0;
+      transition: opacity .7s ease, visibility .7s ease;
+    }
+    .intro-screen[open] { display: grid; }
+    .intro-screen.is-leaving { opacity: 0; visibility: hidden; }
+    .intro-screen::backdrop { background: transparent; }
+    .intro-screen::before,
+    .intro-screen::after {
+      position: absolute;
+      width: min(74vw, 680px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(188,233,217,.14);
+      border-radius: 50%;
+      content: "";
+      animation: intro-radar 5s ease-out infinite;
+    }
+    .intro-screen::after { animation-delay: 2.5s; }
+    .intro-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      justify-items: center;
+      gap: 24px;
+      width: min(90vw, 540px);
+      text-align: center;
+    }
+    .intro-logo {
+      width: min(74vw, 340px);
+      height: auto;
+      opacity: 0;
+      transform: translateY(12px) scale(.96);
+      animation: logo-arrive .9s .15s ease-out forwards;
+    }
+    .intro-caption {
+      color: #c3d0d9;
+      font-size: 10px;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: logo-arrive .7s .65s ease-out forwards;
+    }
+    .intro-progress {
+      width: 170px;
+      height: 2px;
+      overflow: hidden;
+      background: rgba(255,255,255,.16);
+    }
+    .intro-progress::after {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: var(--gold);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: intro-progress 2.5s .2s ease-in-out forwards;
+    }
+    .intro-skip {
+      position: absolute;
+      z-index: 2;
+      right: 22px;
+      bottom: 20px;
+      padding: 9px 13px;
+      color: #e3ebef;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.3);
+      font: inherit;
+      font-size: 10px;
+      cursor: pointer;
+    }
+    @keyframes logo-arrive { to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes intro-progress { to { transform: scaleX(1); } }
+    @keyframes intro-radar { 0% { transform: scale(.68); opacity: 0; } 35% { opacity: 1; } 100% { transform: scale(1.18); opacity: 0; } }
+    .scroll-progress {
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      pointer-events: none;
+    }
+    .scroll-progress span { display: block; width: 100%; height: 100%; background: var(--gold); transform: scaleX(0); transform-origin: left; }
+    .drone-frame:hover img,
+    .analysis-frame:hover img,
+    .design-frame:hover img { transform: scale(1.035); }
+    .drone-frame figcaption,
+    .analysis-frame figcaption,
+    .design-frame figcaption {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 30px 10px 10px;
+      color: var(--white);
+      background: linear-gradient(transparent, rgba(7,20,34,.86));
+      font-size: 9px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .case-study-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 24px 0 28px;
+    }
+    .case-study {
+      min-width: 0;
+      padding: 20px;
+      color: var(--white);
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.13);
+    }
+    .case-study .eyebrow { font-size: 8px; }
+    .case-study h4 {
+      margin: 13px 0 8px;
+      font-family: var(--serif);
+      font-size: 21px;
+      font-weight: 400;
+    }
+    .case-study p {
+      margin: 0;
+      color: #b2c0ca;
+      font-size: 11px;
+      line-height: 1.75;
+    }
+    .case-study .case-detail { margin-top: 12px; }
+    .case-study .case-eyebrow {
+      margin-top: 17px;
+      color: var(--mint);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .change-table-wrap {
+      width: 100%;
+      max-width: 100%;
+      margin-top: 15px;
+      overflow-x: auto;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .change-table {
+      width: 100%;
+      min-width: 420px;
+      border-collapse: collapse;
+      color: #eaf0f3;
+      font-size: 10px;
+      text-align: left;
+    }
+    .change-table th,
+    .change-table td {
+      padding: 8px 9px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      white-space: nowrap;
+    }
+    .change-table th {
+      color: var(--mint);
+      font-size: 8px;
+      font-weight: 650;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .change-table tr:last-child td { border-bottom: 0; }
+    .analysis-projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 14px 0 28px;
+    }
+    .analysis-project {
+      min-width: 0;
+      padding: 20px;
+      color: var(--white);
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.13);
+    }
+    .analysis-project h4 {
+      margin: 12px 0 8px;
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+    }
+    .analysis-project p {
+      margin: 0;
+      color: #b2c0ca;
+      font-size: 11px;
+      line-height: 1.75;
+    }
+    .analysis-project .eyebrow { font-size: 8px; }
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 14px;
+    }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 10px;
+      color: var(--mint);
+      background: rgba(188,233,217,.07);
+      border: 1px solid rgba(188,233,217,.24);
+      font-size: 9px;
+      text-decoration: none;
+    }
+    .project-link:hover { background: rgba(188,233,217,.14); }
+    .interactive-heading {
+      margin-top: 38px;
+    }
+    .interactive-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .interactive-project {
+      min-width: 0;
+      padding: 16px;
+      background: #10243a;
+      border: 1px solid rgba(255,255,255,.15);
+    }
+    .interactive-project h4 {
+      margin: 0 0 7px;
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+    }
+    .interactive-project > p {
+      min-height: 38px;
+      margin: 0 0 13px;
+      color: #b2c0ca;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+    .arcgis-frame {
+      display: block;
+      width: 100%;
+      min-height: 360px;
+      aspect-ratio: 16 / 10;
+      background: #e8ece8;
+      border: 0;
+    }
+    .storymap-frame {
+      min-height: 560px;
+      aspect-ratio: 4 / 5;
+    }
+    .experience-grid .arcgis-frame {
+      min-height: 430px;
+      aspect-ratio: 16 / 10;
+    }
+    .interactive-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 12px;
+      color: #aebdca;
+      font-size: 10px;
+    }
+    .interactive-footer a {
+      color: var(--mint);
+      text-decoration: none;
+    }
+    .interactive-footer a:hover { text-decoration: underline; }
+
+    .approach {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: clamp(40px, 8vw, 110px);
+      align-items: start;
+    }
+    .approach-copy h2 {
+      margin: 14px 0 20px;
+      font-family: var(--serif);
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 400;
+      letter-spacing: -.045em;
+      line-height: 1.03;
+    }
+    .approach-copy p {
+      max-width: 420px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.85;
+    }
+    .steps { border-top: 1px solid var(--line); }
+    .step {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      gap: 15px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .step-number {
+      color: #668a8b;
+      font-size: 10px;
+      letter-spacing: .1em;
+    }
+    .step h3 {
+      margin: 0 0 7px;
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+    }
+    .step p {
+      max-width: 480px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .toolkit {
+      padding: clamp(62px, 7vw, 90px) clamp(22px, 6vw, 96px);
+      color: var(--white);
+      background: #e8ece8;
+    }
+    .toolkit-panel {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: 45px;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: clamp(28px, 5vw, 58px);
+      color: var(--white);
+      background: var(--navy-2);
+    }
+    .toolkit-panel h2 {
+      margin: 13px 0 13px;
+      font-family: var(--serif);
+      font-size: 39px;
+      font-weight: 400;
+      letter-spacing: -.04em;
+    }
+    .toolkit-panel p {
+      max-width: 350px;
+      margin: 0;
+      color: #b2c0ca;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    .tool-groups {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      align-content: center;
+    }
+    .tool-group {
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,.22);
+    }
+    .tool-group h3 {
+      margin: 0 0 12px;
+      color: var(--mint);
+      font-size: 9px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .tool-group p {
+      color: var(--white);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .tool-group ul {
+      display: grid;
+      gap: 7px 16px;
+      margin: 0;
+      padding: 0;
+      color: var(--white);
+      font-size: 12px;
+      line-height: 1.5;
+      list-style: none;
+    }
+    .tool-group.platforms { grid-column: 1 / -1; }
+    .tool-group.platforms ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .tool-group.software ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .contact {
+      padding: clamp(84px, 10vw, 135px) clamp(22px, 6vw, 96px);
+      color: var(--white);
+      background:
+        radial-gradient(ellipse at 90% 20%, rgba(54,101,119,.24), transparent 33%),
+        var(--navy);
+    }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 40px;
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+    .contact h2 {
+      max-width: 690px;
+      margin: 15px 0 18px;
+      font-family: var(--serif);
+      font-size: clamp(45px, 6vw, 78px);
+      font-weight: 400;
+      letter-spacing: -.05em;
+      line-height: 1;
+    }
+    .contact p {
+      max-width: 460px;
+      margin: 0;
+      color: #bdc8d2;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .contact-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 16px;
+    }
+    .contact-email {
+      color: var(--mint);
+      font-size: 13px;
+      text-decoration-color: rgba(188,233,217,.4);
+      text-underline-offset: 5px;
+    }
+    .site-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px clamp(22px, 6vw, 96px);
+      color: #aab9c7;
+      background: #071526;
+      font-size: 10px;
+      letter-spacing: .04em;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .footer-links a { text-decoration: none; }
+    .footer-links a:hover { color: var(--lime); }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 420px; }
+      .work-grid { grid-template-columns: 1fr 1fr; }
+      .work-card:first-child { grid-column: span 2; }
+      .interactive-grid { grid-template-columns: 1fr; }
+      .drone-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .design-gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .tool-group.platforms ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .drone-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .approach { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .toolkit-panel { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .site-header { min-height: 72px; padding: 0 19px; }
+      .identity img { width: 126px; height: 44px; }
+      .nav-toggle { display: inline-flex; align-items: center; }
+      .main-nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        display: none;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 19px 16px;
+        background: var(--navy);
+        border-bottom: 1px solid rgba(255,255,255,.2);
+        font-size: 12px;
+      }
+      .main-nav.is-open { display: flex; }
+      .main-nav a { padding: 12px 4px; }
+      .main-nav .nav-contact { align-self: start; margin-top: 8px; padding: 10px 12px; }
+      .hero { padding: 66px 21px 46px; }
+      h1 { font-size: clamp(49px, 14vw, 72px); }
+      .hero-copy { font-size: 14px; }
+      .hero-visual { min-height: 320px; }
+      .visual-caption { right: 17px; bottom: 17px; left: 17px; }
+      .visual-caption strong { font-size: 19px; }
+      .compass { width: 48px; height: 48px; font-size: 21px; }
+      .signal-strip { margin-top: 50px; }
+      .signal-item { padding-right: 9px; font-size: 8px; }
+      .signal-item b { font-size: 10px; }
+      .section { padding: 72px 21px; }
+      .section-heading { align-items: start; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+      .section-heading h2 { font-size: 44px; }
+      .capability-grid { grid-template-columns: 1fr; }
+      .capability { min-height: auto; padding: 24px 0 27px; }
+      .capability + .capability { padding: 24px 0 27px; border-top: 1px solid var(--line); border-left: 0; }
+      .capability h3 { margin: 21px 0 9px; }
+      .work-grid { grid-template-columns: 1fr; }
+      .work-card, .work-card:first-child { min-height: 350px; grid-column: auto; }
+      .analysis-projects { grid-template-columns: minmax(0, 1fr); }
+      .project-gallery-heading { align-items: start; flex-direction: column; gap: 8px; }
+      .drone-gallery, .analysis-gallery, .design-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+      .drone-frame { aspect-ratio: 1.05; }
+      .analysis-frame { aspect-ratio: 1.05; }
+      .case-study-grid { grid-template-columns: minmax(0, 1fr); }
+      .arcgis-frame { min-height: 320px; }
+      .storymap-frame { min-height: 480px; }
+      .experience-grid .arcgis-frame { min-height: 360px; }
+      .approach { grid-template-columns: 1fr; }
+      .approach-copy h2 { font-size: 46px; }
+      .toolkit { padding: 52px 18px; }
+      .toolkit-panel { gap: 32px; padding: 27px 22px; }
+      .tool-groups { grid-template-columns: 1fr; }
+      .tool-group.platforms { grid-column: auto; }
+      .tool-group.platforms ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .tool-group.software ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .tool-group p { font-size: 11px; }
+      .contact { padding: 76px 21px; }
+      .contact-inner { grid-template-columns: 1fr; align-items: start; gap: 28px; }
+      .contact h2 { font-size: 54px; }
+      .site-footer { align-items: start; flex-direction: column; padding: 20px 21px; }
+      .utility-bar { padding-right: 19px; padding-left: 19px; font-size: 8px; }
+      .gallery-tools { align-items: stretch; flex-direction: column; }
+      .gallery-search { width: 100%; }
+      .report-preview { height: 260px; }
+      .analysis-image-row img { height: 90px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <dialog class="intro-screen" id="intro-screen" aria-label="Alex Manes portfolio introduction">
+    <div class="intro-content">
+      <img class="intro-logo" src="AlexManes-Full.png" alt="Alex Manes">
+      <div class="intro-caption">Geospatial Analysis · UAS Operations · Visual Communications</div>
+      <div class="intro-progress" aria-hidden="true"></div>
+    </div>
+    <button class="intro-skip" type="button">Skip introduction</button>
+  </dialog>
+  <div class="utility-bar"><span>Independent Professional Portfolio</span><span>Geospatial · UAS · Visual Communications</span></div>
+  <header class="site-header">
+    <a class="identity" href="#top" aria-label="Alex Manes, home">
+      <img src="AlexManes-Full.png" alt="Alex Manes">
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#work">Work</a>
+      <a href="#approach">Approach</a>
+      <a class="nav-contact" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <span id="main-content" class="visually-hidden" tabindex="-1">Main content</span>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Geospatial analysis · Drone services · Design</div>
+          <h1 id="hero-title">A clearer view of <em>the ground.</em></h1>
+          <p class="hero-copy">I’m Alex Manes, a drone operator, GIS analyst, and graphic designer. I bring field data, spatial thinking, and visual craft together to make complex information easier to understand.</p>
+          <div class="hero-actions">
+            <a class="button" href="#work">Explore capabilities <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="button button-secondary" href="mailto:skyscenerydrones@gmail.com">Start a conversation</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Aerial landscape photography">
+          <img src="drone-images/green-field-overlook.jpg" alt="Aerial view of green fields and distant hills">
+          <div class="image-label"><span class="status-dot" aria-hidden="true"></span> Field perspective</div>
+          <div class="visual-caption">
+            <div>
+              <strong>Observe. Interpret. Communicate.</strong>
+              <span>Practical insight, from above and on the map</span>
+            </div>
+            <div class="compass" aria-hidden="true">↗</div>
+          </div>
+        </div>
+      </div>
+      <div class="signal-strip" aria-label="Areas of focus">
+        <div class="signal-item"><b>01 / Capture</b>Aerial imagery &amp; data collection</div>
+        <div class="signal-item"><b>02 / Interpret</b>Geospatial analysis &amp; mapping</div>
+        <div class="signal-item"><b>03 / Communicate</b>Design for clarity and impact</div>
+      </div>
+    </section>
+
+    <section class="section" id="capabilities" aria-labelledby="capabilities-title">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Areas of practice</div>
+            <h2 id="capabilities-title">Three disciplines.<br>One connected view.</h2>
+          </div>
+          <p>From a flight plan to a finished visual, I work across the full path from collecting information to making it useful.</p>
+        </div>
+        <div class="capability-grid">
+          <article class="capability">
+            <span class="capability-index">01 / AERIAL OPERATIONS</span>
+            <h3>Drone Services</h3>
+            <p>Commercial drone operations for aerial surveying, imagery, and purposeful field data collection, with experience supporting law enforcement SUAS operations.</p>
+            <div class="capability-tags">
+              <span class="tag">Aerial surveying</span><span class="tag">Data collection</span><span class="tag">SUAS operations</span>
+            </div>
+          </article>
+          <article class="capability">
+            <span class="capability-index">02 / SPATIAL INTELLIGENCE</span>
+            <h3>Geospatial Analysis</h3>
+            <p>Portfolio examples include California farmland acreage change from 2016 to 2025, buffer analysis, crime comparisons, and Mars terrain modeling.</p>
+            <div class="capability-tags">
+              <span class="tag">GIS</span><span class="tag">Mapping</span><span class="tag">Spatial analysis</span>
+            </div>
+          </article>
+          <article class="capability">
+            <span class="capability-index">03 / VISUAL COMMUNICATION</span>
+            <h3>Graphic Design</h3>
+            <p>Logo and visual identity work for civic organizations, companies, and digital communities, designed to make each message clear.</p>
+            <div class="capability-tags">
+              <span class="tag">Branding</span><span class="tag">Visual design</span><span class="tag">Digital &amp; print</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section work-section" id="work" aria-labelledby="work-title">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Selected disciplines</div>
+            <h2 id="work-title">Aerial perspective.<br>Grounded in detail.</h2>
+          </div>
+          <p>A snapshot of the work I do across capture, analysis, and design. Each discipline brings a different perspective to the same goal: clarity.</p>
+        </div>
+        <div class="work-grid">
+          <a class="work-card photo" href="#drone-projects" aria-label="View drone operations work">
+            <svg class="discipline-art survey-art" viewBox="0 0 640 440" role="img" aria-label="Animated aerial survey grid with drone flight path">
+              <defs><pattern id="survey-grid" width="38" height="38" patternUnits="userSpaceOnUse"><path class="art-grid" d="M38 0H0V38"/></pattern></defs>
+              <rect width="640" height="440" fill="url(#survey-grid)"/>
+              <path class="art-muted" d="M40 300C120 240 166 274 227 206s129-36 184-97 101-41 181-72M54 354c87-53 130-28 193-81s133-35 187-93 99-37 173-61"/>
+              <path class="art-line" d="M90 100C183 111 154 205 284 184s114-90 247-11 9 115-41 139"/>
+              <circle class="art-accent art-pulse" cx="90" cy="100" r="7"/><circle class="art-accent art-pulse" cx="490" cy="312" r="7"/>
+              <g transform="translate(320 205)" stroke="#dce8e9" stroke-width="2" fill="none"><path d="M-23 0h46M0-17v34M-23 0l-33-19m79 19 33-19m-79 19-33 19m79-19 33 19"/><circle r="9" fill="#d9b66f"/><circle cx="-58" cy="-20" r="7"/><circle cx="58" cy="-20" r="7"/><circle cx="-58" cy="20" r="7"/><circle cx="58" cy="20" r="7"/></g>
+              <text x="32" y="408" fill="#c4d5dd" font-size="11" letter-spacing="3">AERIAL SURVEY / FLIGHT PATH</text>
+            </svg>
+            <div class="work-content">
+              <div class="eyebrow">Capture · Survey · Visuals</div>
+              <h3>Aerial Mapping &amp; Imagery</h3>
+              <p>Drone-based surveying, photography, videography, and data collection.</p>
+            </div>
+          </a>
+          <a class="work-card photo" href="#geospatial-projects" aria-label="View geospatial analysis work">
+            <svg class="discipline-art" viewBox="0 0 640 440" role="img" aria-label="Animated topographic contour map and spatial analysis markers">
+              <defs><pattern id="analysis-grid" width="44" height="44" patternUnits="userSpaceOnUse"><path class="art-grid" d="M44 0H0V44"/></pattern></defs>
+              <rect width="640" height="440" fill="url(#analysis-grid)"/>
+              <g class="art-muted">
+                <path d="M-30 74C51 2 133 17 188 77s106 64 164 15 131-83 208-30 96 99 125 122"/>
+                <path d="M-40 106C44 36 122 49 174 102s107 66 171 15 129-78 199-27 88 87 125 108"/>
+                <path d="M-35 145C42 80 111 82 164 126s111 69 176 18 123-74 190-25 91 87 133 103"/>
+                <path d="M-26 344c75-73 150-82 208-27s115 67 174 7 128-93 203-47 96 91 125 114"/>
+                <path d="M-24 377c78-73 145-84 203-32s118 72 183 12 125-88 197-42 94 87 119 109"/>
+              </g>
+              <path class="art-line" d="M79 283 190 206l91 35 100-94 75 45 109-72"/>
+              <g fill="#d9b66f"><circle class="art-pulse" cx="190" cy="206" r="7"/><circle class="art-pulse" cx="381" cy="147" r="7"/><circle class="art-pulse" cx="565" cy="120" r="7"/></g>
+              <g fill="#d8e4e7" font-size="10" letter-spacing="2"><text x="34" y="40">SPATIAL ANALYSIS</text><text x="455" y="400">MAP / MODEL / INTERPRET</text></g>
+            </svg>
+            <div class="work-content">
+              <div class="eyebrow">Analyze · Map · Explain</div>
+              <h3>Geospatial Analysis</h3>
+              <p>Spatial analysis, crime comparisons, agricultural trends, and terrain modeling.</p>
+            </div>
+          </a>
+          <a class="work-card photo" href="#design-projects" aria-label="View graphic design work">
+            <svg class="discipline-art" viewBox="0 0 640 440" role="img" aria-label="Animated graphic design layout with vector geometry and typography guides">
+              <defs><pattern id="design-grid" width="34" height="34" patternUnits="userSpaceOnUse"><path class="art-grid" d="M34 0H0V34"/></pattern></defs>
+              <rect width="640" height="440" fill="url(#design-grid)"/>
+              <path d="M80 93h250v172H80z" fill="none" stroke="#d9b66f" stroke-width="2"/>
+              <circle cx="205" cy="179" r="66" fill="none" stroke="#bed7d7" stroke-width="1.5"/>
+              <path d="m205 119 18 42 45 4-34 29 11 45-40-24-40 24 11-45-34-29 45-4z" fill="none" stroke="#bed7d7" stroke-width="1.5"/>
+              <path class="art-line" d="M375 121h180M375 151h146M375 181h165M375 244h180M375 274h119"/>
+              <circle class="art-accent art-pulse" cx="520" cy="329" r="24"/><circle class="art-muted" cx="520" cy="329" r="47"/>
+              <text x="82" y="320" fill="#dce8e9" font-family="Georgia,serif" font-size="22">VISUAL SYSTEMS</text>
+              <text x="82" y="350" fill="#b7c9d3" font-size="10" letter-spacing="3">IDENTITY / LAYOUT / DETAIL</text>
+            </svg>
+            <div class="work-content">
+              <div class="eyebrow">Compose · Refine · Deliver</div>
+              <h3>Graphic Design</h3>
+              <p>Selected identity, emblem, and logo work from the design portfolio.</p>
+            </div>
+          </a>
+        </div>
+
+        <section class="project-gallery-section" id="drone-projects" aria-labelledby="drone-projects-title">
+          <div class="project-gallery-heading">
+            <h3 id="drone-projects-title">Drone Operations</h3>
+            <p>Field imagery from mapping and oblique flights using the DJI Phantom 4 RTK and DJI Mavic 3 Enterprise.</p>
+          </div>
+          <div class="drone-gallery" aria-label="Drone operations portfolio images">
+            <figure class="drone-frame"><img src="project-work/drone-operations/1.jpg" alt="Aerial view of rocky terrain and open landscape" loading="lazy"><figcaption>Rocky landscape</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/2.jpg" alt="Aerial view of a resort and surrounding buildings" loading="lazy"><figcaption>Resort overview</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/3.jpg" alt="Aerial view across a green agricultural field" loading="lazy"><figcaption>Agricultural field</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/4.jpg" alt="Aerial landscape with hills and a field" loading="lazy"><figcaption>Rolling hills</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/5.jpg" alt="Aerial view across an open field" loading="lazy"><figcaption>Open field</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/6.jpg" alt="Aerial view across agricultural land" loading="lazy"><figcaption>Agricultural landscape</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/7.jpg" alt="Aerial view along a river corridor" loading="lazy"><figcaption>River corridor</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/8.jpg" alt="Aerial view of a green field with distant foothills" loading="lazy"><figcaption>Field and foothills</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/9.jpg" alt="Aerial view over a valley landscape" loading="lazy"><figcaption>Valley landscape</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/10.jpg" alt="Aerial view over a residential neighborhood" loading="lazy"><figcaption>Neighborhood survey</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/11.jpg" alt="Top-down aerial view of a swimming pool and property" loading="lazy"><figcaption>Property detail</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/12.jpg" alt="Aerial view of a residential property" loading="lazy"><figcaption>Residential property</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/13.jpg" alt="Aerial view along a suburban street" loading="lazy"><figcaption>Street corridor</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/14.jpg" alt="Aerial view of a pool and landscaped property" loading="lazy"><figcaption>Pool and landscape</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/15.jpg" alt="Aerial view of homes with hills in the background" loading="lazy"><figcaption>Homes and hills</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/16.jpg" alt="Aerial view of a sports field" loading="lazy"><figcaption>Sports facility</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/17.jpg" alt="Aerial view of a parking area and nearby facilities" loading="lazy"><figcaption>Parking and access</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/26-1.jpg" alt="Aerial view of desert foothills" loading="lazy"><figcaption>Desert terrain 01</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/26-2.jpg" alt="Aerial view across dry open terrain" loading="lazy"><figcaption>Desert terrain 02</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/26-3.jpg" alt="Aerial view of a mountain slope" loading="lazy"><figcaption>Mountain slope 01</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/26-4.jpg" alt="Aerial view of a mountain ridge and desert landscape" loading="lazy"><figcaption>Mountain slope 02</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/26-5.jpg" alt="Aerial view of scrubland and a dirt route" loading="lazy"><figcaption>Scrubland route</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/26-6.jpg" alt="Aerial view across open foothill terrain" loading="lazy"><figcaption>Foothill terrain</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/26-7.jpg" alt="Aerial view across foothills and a dirt route" loading="lazy"><figcaption>Foothill access</figcaption></figure>
+            <figure class="drone-frame"><img src="project-work/drone-operations/26-8.jpg" alt="Aerial view over a wooded hillside" loading="lazy"><figcaption>Wooded hillside</figcaption></figure>
+          </div>
+          <div class="project-gallery-heading interactive-heading">
+            <h3>Interactive UAS Deliverables</h3>
+            <p>Explore the published orthomosaic and elevation model experiences from residential property and horse ranch mapping projects.</p>
+          </div>
+          <div class="interactive-grid experience-grid">
+            <article class="interactive-project">
+              <h4>Residential Property Orthomosaic, DEM, and DSM</h4>
+              <p>ArcGIS Experience Builder project presenting mapped aerial imagery and derived elevation surfaces.</p>
+              <iframe class="arcgis-frame" src="https://experience.arcgis.com/experience/715b8e8c2c3449e5b722129015ffb5bc" title="Residential property orthomosaic, digital elevation model, and digital surface model" loading="lazy" allow="geolocation; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+              <div class="interactive-footer"><span>ArcGIS Experience Builder</span><a href="https://experience.arcgis.com/experience/715b8e8c2c3449e5b722129015ffb5bc" target="_blank" rel="noopener noreferrer">Open experience ↗</a></div>
+            </article>
+            <article class="interactive-project">
+              <h4>Horse Ranch Orthomosaic, DEM, and DSM</h4>
+              <p>Interactive UAS mapping products for a horse ranch, with a direct link if the embedded view is unavailable.</p>
+              <iframe class="arcgis-frame" src="https://experience.arcgis.com/experience/48af7864e19347128e93925a15d30e14/page/Map/" title="Horse ranch orthomosaic, digital elevation model, and digital surface model" loading="lazy" allow="geolocation; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+              <div class="interactive-footer"><span>ArcGIS Experience Builder</span><a href="https://experience.arcgis.com/experience/48af7864e19347128e93925a15d30e14/page/Map/" target="_blank" rel="noopener noreferrer">Open experience ↗</a></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="project-gallery-section" id="geospatial-projects" aria-labelledby="geospatial-projects-title">
+          <div class="project-gallery-heading">
+            <h3 id="geospatial-projects-title">Geospatial Analysis</h3>
+            <p>Maps, statistical comparisons, and terrain products from the GIS portfolio.</p>
+          </div>
+          <div class="case-study-grid">
+            <article class="case-study">
+              <div class="eyebrow">California · 2016 to 2025</div>
+              <h4>Farmland Acreage Change</h4>
+              <p>The project compares California farmland classifications over time. The reported combined acreage increased by 230,339 acres, while the mix shifted: local-importance farmland gained acreage as prime and state-importance farmland declined.</p>
+              <div class="case-eyebrow">Reported category values</div>
+              <div class="change-table-wrap">
+                <table class="change-table">
+                  <thead><tr><th>Classification</th><th>2016 acres</th><th>2025 acres</th><th>Change</th></tr></thead>
+                  <tbody>
+                    <tr><td>Prime farmland</td><td>5,031,477</td><td>4,958,493</td><td>-72,984</td></tr>
+                    <tr><td>Semi-agricultural</td><td>49,845</td><td>52,300</td><td>+2,455</td></tr>
+                    <tr><td>State importance</td><td>2,544,478</td><td>2,496,148</td><td>-48,330</td></tr>
+                    <tr><td>Local importance</td><td>2,852,836</td><td>3,185,352</td><td>+332,516</td></tr>
+                    <tr><td>Unique farmland</td><td>Not stated</td><td>Not stated</td><td>+16,682</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="case-detail">The category totals show why acreage alone is not the whole story. A net gain does not by itself establish improved soil health, sustainability, or a cause for the classification changes.</p>
+            </article>
+            <article class="case-study">
+              <div class="eyebrow">Los Angeles · Police-station proximity</div>
+              <h4>Crime and Buffer Analysis</h4>
+              <p>This ArcGIS Pro study asks whether neighborhood crime rates differ inside one-mile police-station buffers compared with areas farther away. Crime counts were normalized by population, then spatially joined to buffer areas for comparison.</p>
+              <div class="case-eyebrow">Question and hypotheses</div>
+              <p class="case-detail"><strong>Research question:</strong> Are crime rates lower in Los Angeles neighborhoods within one mile of a police station?</p>
+              <p class="case-detail"><strong>Null:</strong> Mean crime rates are similar inside and outside the one-mile buffers. <strong>Alternative:</strong> Rates are lower inside the buffers.</p>
+              <div class="case-eyebrow">Reported statistical result</div>
+              <p class="case-detail">The project reports t = -1.677 and p = 0.0502. For the stated one-tailed test at alpha = 0.10, the reported p-value is below the threshold and the null hypothesis is rejected.</p>
+              <p class="case-detail">This is evidence of a difference under the selected test, not proof that proximity causes lower crime. The result should be interpreted alongside the study design, time period, data quality, population normalization, and other neighborhood factors.</p>
+              <p class="project-media-label">Map Report · Police-Station Buffer Analysis</p>
+              <img class="report-map" src="project-work/geospatial/buffersmap4.jpg" alt="Los Angeles police-station buffer map with crime and arrest data layers" loading="lazy">
+              <p class="project-media-label">Embedded Project Report</p>
+              <iframe class="report-preview" src="project-work/geospatial/reports/qsap5.pdf#view=FitH&amp;toolbar=1" title="Crime and Buffer Analysis project report PDF" loading="lazy"></iframe>
+              <div class="project-links">
+                <a class="project-link" href="https://docs.google.com/spreadsheets/d/1cUU6APJLxTzhp45TqAABuM0mtxeEaYSKQ1vAEd7s5kI/edit?usp=sharing" target="_blank" rel="noopener noreferrer">View quantitative data ↗</a>
+                <a class="project-link" href="project-work/geospatial/reports/qsap5.pdf" target="_blank" rel="noopener noreferrer">Open project report PDF ↗</a>
+              </div>
+            </article>
+          </div>
+          <div class="analysis-projects" aria-label="Additional geospatial project summaries">
+            <article class="analysis-project">
+              <div class="eyebrow">Florida · Census tracts</div>
+              <h4>Age, Income, and Spatial Hotspots</h4>
+              <p>A bivariate map compares median age by sex with household income across Florida census tracts. The accompanying hotspot interpretation notes coastal clusters in median age and higher-income concentrations around the Jacksonville to Orlando corridor. These are mapped spatial patterns, not evidence that location alone causes income or age differences.</p>
+              <p class="project-media-label">Embedded Bivariate Map Report</p>
+              <iframe class="report-preview" src="project-work/geospatial/reports/bivariatemap3_merged_compressed.pdf#view=FitH&amp;toolbar=1" title="Age, Income, and Spatial Hotspots bivariate map report PDF" loading="lazy"></iframe>
+              <div class="project-links"><a class="project-link" href="project-work/geospatial/reports/bivariatemap3_merged_compressed.pdf" target="_blank" rel="noopener noreferrer">Open bivariate map report ↗</a></div>
+            </article>
+            <article class="analysis-project">
+              <div class="eyebrow">Planetary terrain · 200 m resolution</div>
+              <h4>Mars Elevation, Slope, and Roughness</h4>
+              <p>A terrain-analysis project presents a Mars digital elevation model alongside derived slope and terrain-ruggedness views. The products demonstrate raster interpretation and complementary terrain measures at the resolution stated on the source DEM.</p>
+              <div class="analysis-image-row" aria-label="Mars terrain analysis imagery">
+                <img src="project-work/geospatial/mars-dem.png" alt="Mars digital elevation model" loading="lazy">
+                <img src="project-work/geospatial/mars-slope.png" alt="Mars terrain slope analysis" loading="lazy">
+                <img src="project-work/geospatial/mars-tri.png" alt="Mars terrain ruggedness index" loading="lazy">
+              </div>
+              <p class="project-media-label">Embedded Terrain Analysis Poster</p>
+              <iframe class="report-preview" src="project-work/geospatial/reports/lab5poster.pdf#view=FitH&amp;toolbar=1" title="Mars Elevation, Slope, and Roughness project poster PDF" loading="lazy"></iframe>
+              <div class="project-links"><a class="project-link" href="project-work/geospatial/reports/lab5poster.pdf" target="_blank" rel="noopener noreferrer">Open project poster PDF ↗</a></div>
+            </article>
+            <article class="analysis-project">
+              <div class="eyebrow">Zion National Park · Thematic mapping</div>
+              <h4>Supervised Classification</h4>
+              <p>The portfolio includes a supervised classification project for Zion National Park. The published project identifies the classification topic but does not state training data, class definitions, or accuracy statistics, so those measures are not inferred here.</p>
+            </article>
+            <article class="analysis-project">
+              <div class="eyebrow">Santa Rosa Plateau · Environmental communication</div>
+              <h4>Wildfire Impacts Flyer</h4>
+              <p>A geospatial communication piece focused on wildfire impacts at the Santa Rosa Plateau. It brings environmental mapping into a concise visual format for sharing project findings.</p>
+              <p class="project-media-label">Embedded Environmental Project Flyer</p>
+              <iframe class="report-preview" src="project-work/geospatial/reports/environmentalproject_complete-compressed.pdf#view=FitH&amp;toolbar=1" title="Santa Rosa Plateau Wildfire Impacts environmental project PDF" loading="lazy"></iframe>
+              <div class="project-links"><a class="project-link" href="project-work/geospatial/reports/environmentalproject_complete-compressed.pdf" target="_blank" rel="noopener noreferrer">Open environmental project PDF ↗</a></div>
+            </article>
+          </div>
+          <div class="project-gallery-heading interactive-heading">
+            <h3>Interactive Maps and Story</h3>
+            <p>Live ArcGIS content from the original portfolio. If an embedded item is unavailable, use its direct ArcGIS link.</p>
+          </div>
+          <div class="interactive-grid">
+            <article class="interactive-project">
+              <h4>Industrial Agriculture and Regenerative Agriculture</h4>
+              <p>ArcGIS Dashboard associated with the California farmland acreage analysis.</p>
+              <iframe class="arcgis-frame" src="https://pomona.maps.arcgis.com/apps/dashboards/1bd691ed0e2141628aa1afb4d72b46dc" title="ArcGIS Dashboard for industrial agriculture and regenerative agriculture" loading="lazy" allow="geolocation; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+              <div class="interactive-footer"><span>ArcGIS Dashboard</span><a href="https://pomona.maps.arcgis.com/apps/dashboards/1bd691ed0e2141628aa1afb4d72b46dc" target="_blank" rel="noopener noreferrer">Open dashboard ↗</a></div>
+            </article>
+            <article class="interactive-project">
+              <h4>California Farmland Story Map</h4>
+              <p>Full ArcGIS StoryMap accompanying the agriculture and farmland analysis.</p>
+              <iframe class="arcgis-frame storymap-frame" src="https://storymaps.arcgis.com/stories/0d0733562e894df28ffb4bb1f5cedff0" title="ArcGIS StoryMap about industrial and regenerative agriculture" loading="lazy" allow="geolocation; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+              <div class="interactive-footer"><span>ArcGIS StoryMaps</span><a href="https://storymaps.arcgis.com/stories/0d0733562e894df28ffb4bb1f5cedff0" target="_blank" rel="noopener noreferrer">Open StoryMap ↗</a></div>
+            </article>
+          </div>
+          <div class="gallery-tools">
+            <label class="visually-hidden" for="analysis-search">Search geospatial project imagery</label>
+            <input class="gallery-search" id="analysis-search" type="search" placeholder="Search geospatial imagery">
+            <span class="gallery-count" aria-live="polite"></span>
+          </div>
+          <div class="analysis-gallery searchable-gallery" aria-label="Geospatial analysis portfolio images">
+            <figure class="analysis-frame"><img src="project-work/geospatial/buffersmap4.jpg" alt="Map of Los Angeles police-station buffer zones" loading="lazy"><figcaption>Police-station buffers</figcaption></figure>
+            <figure class="analysis-frame"><img src="project-work/geospatial/crime-rate-comparison.png" alt="Chart comparing crime rates within and outside buffer areas" loading="lazy"><figcaption>Crime-rate comparison</figcaption></figure>
+            <figure class="analysis-frame"><img src="project-work/geospatial/arrest-inside-chart.png" alt="Arrest severity chart for the inside-buffer study area" loading="lazy"><figcaption>Arrest severity inside buffer</figcaption></figure>
+            <figure class="analysis-frame"><img src="project-work/geospatial/arrest-outside-chart.png" alt="Arrest severity chart for the outside-buffer study area" loading="lazy"><figcaption>Arrest severity outside buffer</figcaption></figure>
+            <figure class="analysis-frame"><img src="project-work/geospatial/crime-inside-chart.png" alt="Crime categories chart for the inside-buffer study area" loading="lazy"><figcaption>Crime categories inside buffer</figcaption></figure>
+            <figure class="analysis-frame"><img src="project-work/geospatial/crime-outside-chart.png" alt="Crime categories chart for the outside-buffer study area" loading="lazy"><figcaption>Crime categories outside buffer</figcaption></figure>
+            <figure class="analysis-frame"><img src="project-work/geospatial/mars-dem.png" alt="Mars digital elevation model" loading="lazy"><figcaption>Mars digital elevation model</figcaption></figure>
+            <figure class="analysis-frame"><img src="project-work/geospatial/mars-slope.png" alt="Mars terrain slope analysis" loading="lazy"><figcaption>Mars slope analysis</figcaption></figure>
+            <figure class="analysis-frame"><img src="project-work/geospatial/mars-tri.png" alt="Mars terrain ruggedness analysis" loading="lazy"><figcaption>Mars terrain ruggedness</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="project-gallery-section" id="design-projects" aria-labelledby="design-projects-title">
+          <div class="project-gallery-heading">
+            <h3 id="design-projects-title">Graphic Design</h3>
+            <p>Selected emblems, logos, seals, and visual identity pieces from the design gallery.</p>
+          </div>
+          <div class="gallery-tools">
+            <label class="visually-hidden" for="design-search">Search graphic design work</label>
+            <input class="gallery-search" id="design-search" type="search" placeholder="Search graphic design work">
+            <span class="gallery-count" aria-live="polite"></span>
+          </div>
+          <div class="design-gallery searchable-gallery" aria-label="Graphic design portfolio examples">
+            <figure class="design-frame"><img src="project-work/graphic-design/7thuod-patch.png" alt="7th Urban Operations emblem" loading="lazy"><figcaption>7th Urban Operations</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/lspd1.png" alt="Los Santos Police Department badge design" loading="lazy"><figcaption>Los Santos Police Department</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/polaris1-black-bg.png" alt="Polarium Studios logo concept one on a black background" loading="lazy"><figcaption>Polarium Studios</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/polaris2-black-bg.png" alt="Polarium Studios logo concept two on a black background" loading="lazy"><figcaption>Polarium Studios alternate</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/watchtowerred.png" alt="Watchtower roleplay emblem" loading="lazy"><figcaption>Watchtower Roleplay</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/jpupdatedtransparent.png" alt="JP Retrospect emblem" loading="lazy"><figcaption>JP Retrospect</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/nsi-logo-main.png" alt="National Security Intelligence logo" loading="lazy"><figcaption>National Security Intelligence</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/sib-logo.png" alt="Special Investigations Bureau logo" loading="lazy"><figcaption>Special Investigations Bureau</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/city-of-pinedale-logo.png" alt="City of Pinedale seal" loading="lazy"><figcaption>City of Pinedale</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/pinedale-city-council-logo.png" alt="Pinedale City Council seal" loading="lazy"><figcaption>Pinedale City Council</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/pinedale-court-logo.png" alt="Pinedale Municipal Court seal" loading="lazy"><figcaption>Pinedale Municipal Court</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/foreign-logo.png" alt="Commonwealth Foreign Office seal" loading="lazy"><figcaption>Commonwealth Foreign Office</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/uncf.png" alt="UNCF emblem" loading="lazy"><figcaption>UNCF</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/wesnora-seal.png" alt="Republic of Wesnora seal" loading="lazy"><figcaption>Republic of Wesnora</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/blizzard-helicopter-logo.png" alt="Blizzard Helicopter Systems logo" loading="lazy"><figcaption>Blizzard Helicopter Systems</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/devsquad-logo.png" alt="Polarstar Development Squad logo" loading="lazy"><figcaption>Polarstar Development Squad</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/discord-logo-stevka.png" alt="Republic of Stevka community logo" loading="lazy"><figcaption>Republic of Stevka</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/discord-logo.png" alt="Discord community logo design" loading="lazy"><figcaption>Community logo study</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/discord-willow.png" alt="Willow Canyon community seal" loading="lazy"><figcaption>Willow Canyon</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/hall-of-rock-updated.png" alt="Hall of Rock emblem" loading="lazy"><figcaption>Hall of Rock</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/logo1edited.png" alt="Luatech Industries logo concept one" loading="lazy"><figcaption>Luatech Industries</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/logo2transparent2.png" alt="Luatech Industries logo concept two" loading="lazy"><figcaption>Luatech Industries alternate</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/patriot-transparent.png" alt="Patriot anti-aircraft systems logo" loading="lazy"><figcaption>Patriot Anti-Aircraft Systems</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/polarstar2.png" alt="Polarstar Studios emblem" loading="lazy"><figcaption>Polarstar Studios</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/polarstar-spec-ops-2.png" alt="Polarstar Special Operations emblem" loading="lazy"><figcaption>Polarstar Special Operations</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/staff-transparent.png" alt="Polarstar Staff Team emblem" loading="lazy"><figcaption>Polarstar Staff Team</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/striker-transparent.png" alt="Striker Tank Systems emblem" loading="lazy"><figcaption>Striker Tank Systems</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/track-x-transparent.png" alt="Track-X Engineering emblem" loading="lazy"><figcaption>Track-X Engineering</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/vector-transparent.png" alt="Vector Incorporated emblem" loading="lazy"><figcaption>Vector Incorporated</figcaption></figure>
+            <figure class="design-frame"><img src="project-work/graphic-design/volatus-new.png" alt="Volatus Plane Systems emblem" loading="lazy"><figcaption>Volatus Plane Systems</figcaption></figure>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section" id="approach" aria-labelledby="approach-title">
+      <div class="section-inner approach">
+        <div class="approach-copy">
+          <div class="eyebrow">A practical workflow</div>
+          <h2 id="approach-title">Good work starts with a good question.</h2>
+          <p>Every project is different. I focus on understanding the need first, then matching the right tools and point of view to the task.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <span class="step-number">01 / DEFINE</span>
+            <div><h3>Understand the objective</h3><p>Clarify the question, the audience, and what a useful result should make possible.</p></div>
+          </article>
+          <article class="step">
+            <span class="step-number">02 / COLLECT</span>
+            <div><h3>Capture the right information</h3><p>Plan the fieldwork and data collection around the intended use, whether from the air, existing datasets, or both.</p></div>
+          </article>
+          <article class="step">
+            <span class="step-number">03 / INTERPRET</span>
+            <div><h3>Find the signal</h3><p>Bring spatial analysis and careful review to the data, keeping the context and limitations in view.</p></div>
+          </article>
+          <article class="step">
+            <span class="step-number">04 / DELIVER</span>
+            <div><h3>Make the result clear</h3><p>Shape findings into maps, imagery, or visual design that communicates what matters.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="toolkit" aria-labelledby="toolkit-title">
+      <div class="toolkit-panel">
+        <div>
+          <div class="eyebrow">Tools of the trade</div>
+          <h2 id="toolkit-title">The right kit<br>for the task.</h2>
+          <p>A mix of field-ready aircraft and established geospatial and creative software.</p>
+        </div>
+        <div class="tool-groups">
+          <div class="tool-group platforms">
+            <h3>UAS platforms</h3>
+            <ul>
+              <li>DJI Mavic 3 Enterprise (With RTK)</li>
+              <li>DJI Air 2S</li>
+              <li>DJI M30T (RTK capable) (Thermal)</li>
+              <li>DJI M300 RTK</li>
+              <li>DJI Mavic 2 Enterprise (Thermal)</li>
+              <li>DJI Phantom 4 RTK</li>
+              <li>DJI Inspire 1</li>
+              <li>DJI Inspire 2</li>
+              <li>DJI M350 RTK</li>
+              <li>Skydio 2</li>
+              <li>Potensic Pro 4</li>
+              <li>EXO Cinemaster 2</li>
+            </ul>
+          </div>
+          <div class="tool-group software">
+            <h3>Geospatial / UAV Analysis</h3>
+            <ul>
+              <li>ArcGIS Suite</li>
+              <li>QGIS</li>
+              <li>WebODM</li>
+              <li>Pix4D</li>
+              <li>VirtualSurveyor</li>
+              <li>LP360</li>
+            </ul>
+          </div>
+          <div class="tool-group software">
+            <h3>Creative</h3>
+            <ul>
+              <li>Adobe Suite</li>
+              <li>Microsoft Suite</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact-inner">
+        <div>
+          <div class="eyebrow">Let’s talk about your project</div>
+          <h2 id="contact-title">Make the next view count.</h2>
+          <p>Have a mapping, drone, or design project in mind? Get in touch and tell me what you’re working on.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button" href="mailto:skyscenerydrones@gmail.com">Email Alex <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="contact-email" href="mailto:skyscenerydrones@gmail.com">skyscenerydrones@gmail.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 Alex Manes · Geospatial, aerial &amp; visual work</span>
+    <nav class="footer-links" aria-label="Social links">
+      <a href="https://www.linkedin.com/in/alexander-manes-3831ba308/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://www.instagram.com/skyscenerydrones/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.youtube.com/@SkySceneryDrones" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="https://www.facebook.com/alex.manes.2025" target="_blank" rel="noopener noreferrer">Facebook</a>
+    </nav>
+  </footer>
+  <dialog class="media-viewer" id="media-viewer" aria-labelledby="media-caption">
+    <button class="media-viewer-close" type="button">Close image</button>
+    <figure>
+      <img alt="">
+      <figcaption id="media-caption"></figcaption>
+    </figure>
+  </dialog>
+  <script>
+    const intro = document.querySelector("#intro-screen");
+    const introSkip = intro.querySelector(".intro-skip");
+    let introTimeout;
+
+    function closeIntro() {
+      if (!intro.open || intro.classList.contains("is-leaving")) return;
+      clearTimeout(introTimeout);
+      intro.classList.add("is-leaving");
+      intro.setAttribute("aria-hidden", "true");
+      window.setTimeout(() => { intro.close(); }, 750);
+    }
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      intro.close();
+    } else {
+      intro.showModal();
+      introTimeout = window.setTimeout(closeIntro, 2800);
+    }
+    introSkip.addEventListener("click", closeIntro);
+    intro.addEventListener("cancel", event => {
+      event.preventDefault();
+      closeIntro();
+    });
+
+    const navToggle = document.querySelector(".nav-toggle");
+    const mainNav = document.querySelector("#main-nav");
+    navToggle.addEventListener("click", () => {
+      const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+      navToggle.setAttribute("aria-expanded", String(!isOpen));
+      mainNav.classList.toggle("is-open", !isOpen);
+    });
+    mainNav.addEventListener("click", event => {
+      if (event.target.closest("a")) {
+        navToggle.setAttribute("aria-expanded", "false");
+        mainNav.classList.remove("is-open");
+      }
+    });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        navToggle.setAttribute("aria-expanded", "false");
+        mainNav.classList.remove("is-open");
+        closeIntro();
+      }
+    });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 620) {
+        navToggle.setAttribute("aria-expanded", "false");
+        mainNav.classList.remove("is-open");
+      }
+    });
+
+    const scrollIndicator = document.querySelector(".scroll-progress span");
+    function updateScrollProgress() {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+      scrollIndicator.style.transform = `scaleX(${Math.min(1, Math.max(0, progress))})`;
+    }
+    window.addEventListener("scroll", updateScrollProgress, { passive: true });
+    window.addEventListener("resize", updateScrollProgress);
+    updateScrollProgress();
+
+    document.querySelectorAll(".gallery-tools").forEach(tools => {
+      const input = tools.querySelector(".gallery-search");
+      const count = tools.querySelector(".gallery-count");
+      const gallery = tools.nextElementSibling;
+      const figures = [...gallery.querySelectorAll("figure")];
+      function filterFigures() {
+        const term = input.value.trim().toLowerCase();
+        let visibleCount = 0;
+        figures.forEach(figure => {
+          const text = `${figure.textContent} ${figure.querySelector("img").alt}`.toLowerCase();
+          figure.hidden = !text.includes(term);
+          if (!figure.hidden) visibleCount += 1;
+        });
+        count.textContent = `${visibleCount} of ${figures.length} items`;
+      }
+      input.addEventListener("input", filterFigures);
+      filterFigures();
+    });
+
+    const viewer = document.querySelector("#media-viewer");
+    const viewerImage = viewer.querySelector("img");
+    const viewerCaption = viewer.querySelector("#media-caption");
+    viewer.querySelector(".media-viewer-close").addEventListener("click", () => viewer.close());
+    viewer.addEventListener("click", event => {
+      if (event.target === viewer) viewer.close();
+    });
+    document.querySelectorAll(".drone-gallery, .analysis-gallery, .design-gallery, .analysis-image-row, .case-study").forEach(gallery => {
+      gallery.addEventListener("click", event => {
+        const image = event.target.closest("img");
+        if (!image) return;
+        viewerImage.src = image.src;
+        viewerImage.alt = image.alt;
+        viewerCaption.textContent = image.closest("figure")?.querySelector("figcaption")?.textContent || image.alt;
+        viewer.showModal();
+      });
+    });
+  </script>
+</body>
+</html>
